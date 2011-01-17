@@ -29,7 +29,10 @@ public class WordCount extends Configured implements Tool {
 		FileOutputFormat.setOutputPath(conf, new Path(args[1]));
 
 		conf.setMapperClass(WordCountMapper.class);
+		conf.setCombinerClass(WordCountReducer.class);
 		conf.setReducerClass(WordCountReducer.class);
+		
+//		conf.setPartitionerClass(HashPartitioner.class);
 
 		conf.setOutputKeyClass(Text.class);
 		conf.setOutputValueClass(IntWritable.class);
