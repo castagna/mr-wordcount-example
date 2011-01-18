@@ -19,7 +19,15 @@ package com.talis.mapreduce.wordcount.oldapi;
 public class Run {
 
 	public static void main(String[] args) throws Exception {
-		WordCount.main(new String[] { "src/test/resources/loremipsum2", "target/output_" + System.currentTimeMillis() } );
+		String conf = "conf/hadoop-local.xml";
+		
+		WordCount.main(
+				new String[] { 
+						"-conf",
+						conf,
+						"src/test/resources/loremipsum2", 
+						"target/output_" + System.currentTimeMillis() 
+				} );
 	}
 
 }

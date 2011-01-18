@@ -20,9 +20,13 @@ public class Run {
 
 	public static void main(String[] args) throws Exception 
 	{
+		String conf = "conf/hadoop-localhost.xml";
+		
 		WordCount.main(
 				new String[] { 
-						"src/test/resources/loremipsum2", 
+						"-conf",
+						conf,
+						"src/test/resources/loremipsum", 
 						"target/output_" + System.currentTimeMillis() 
 				} );
 	}
